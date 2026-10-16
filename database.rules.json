@@ -1,0 +1,48 @@
+{
+  "rules": {
+    "tournament": {
+      ".read": true,
+      ".write": "newData.exists() && !newData.hasChild('adminPin')",
+      "status": {
+        ".validate": "newData.isString() && (newData.val() == 'recruiting' || newData.val() == 'handicap_declaration' || newData.val() == 'judging' || newData.val() == 'matches' || newData.val() == 'finals_handicap_select' || newData.val() == 'finals' || newData.val() == 'ended')"
+      },
+      "round": {
+        ".validate": "newData.isNumber() && newData.val() >= 1 && newData.val() <= 20"
+      },
+      "lastUpdated": {
+        ".validate": "newData.isNumber()"
+      },
+      "participants": {
+        "$participantId": {
+          ".validate": "newData.hasChildren(['id', 'name', 'isAlive'])",
+          "id": {
+            ".validate": "newData.isString() && newData.val().length <= 30"
+          },
+          "name": {
+            ".validate": "newData.isString() && newData.val().length >= 1 && newData.val().length <= 15"
+          },
+          "isAlive": {
+            ".validate": "newData.isBoolean()"
+          }
+        }
+      },
+      "rounds": {
+        "$roundKey": {
+          "handicaps": {
+            "$pid": {
+              ".validate": "newData.isString() && newData.val().length <= 100"
+            }
+          }
+        }
+      },
+      "finals": {
+        "p1ChosenForP2": {
+          ".validate": "newData.isString() && newData.val().length <= 100"
+        },
+        "p2ChosenForP1": {
+          ".validate": "newData.isString() && newData.val().length <= 100"
+        }
+      }
+    }
+  }
+}
