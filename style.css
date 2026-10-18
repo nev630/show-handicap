@@ -1,0 +1,441 @@
+@charset "UTF-8";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+/* ==========================================================================
+   Modern Minimalist Gaming / Tournament Design System
+   Inspired by Linear, Vercel, Raycast & Modern Esports Platforms
+   ========================================================================== */
+
+:root {
+  --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  
+  /* Modern Dark Palette */
+  --bg-app: #090a0f;
+  --bg-subtle: #0f1117;
+  --bg-card: #141720;
+  --bg-card-hover: #1a1e2a;
+  --bg-card-elevated: #1e2332;
+  
+  /* Borders */
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-medium: rgba(255, 255, 255, 0.12);
+  --border-highlight: rgba(255, 255, 255, 0.2);
+  
+  /* Typography Colors */
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-tertiary: #64748b;
+  --text-muted: #475569;
+  
+  /* Accents */
+  --accent-amber: #f59e0b;
+  --accent-amber-light: #fbbf24;
+  --accent-amber-subtle: rgba(245, 158, 11, 0.1);
+  --accent-amber-border: rgba(245, 158, 11, 0.3);
+  
+  --accent-blue: #3b82f6;
+  --accent-blue-subtle: rgba(59, 130, 246, 0.1);
+  --accent-blue-border: rgba(59, 130, 246, 0.25);
+  
+  --accent-emerald: #10b981;
+  --accent-emerald-subtle: rgba(16, 185, 129, 0.1);
+  --accent-emerald-border: rgba(16, 185, 129, 0.25);
+  
+  --accent-rose: #f43f5e;
+  --accent-rose-subtle: rgba(244, 63, 94, 0.1);
+  --accent-rose-border: rgba(244, 63, 94, 0.25);
+  
+  --accent-purple: #a855f7;
+  --accent-purple-subtle: rgba(168, 85, 247, 0.1);
+  --accent-purple-border: rgba(168, 85, 247, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  letter-spacing: -0.015em;
+  padding-bottom: 76px;
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 119, 198, 0.08), transparent),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(245, 158, 11, 0.04), transparent);
+}
+
+/* Custom Minimalist Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* Sleek Cards */
+.card-modern {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.card-modern:hover {
+  border-color: var(--border-medium);
+}
+
+.card-gold {
+  background: linear-gradient(145deg, rgba(245, 158, 11, 0.06) 0%, rgba(20, 23, 32, 0.95) 100%);
+  border: 1px solid var(--accent-amber-border);
+}
+
+.card-eliminated {
+  background: rgba(18, 19, 25, 0.6);
+  border: 1px solid rgba(244, 63, 94, 0.15);
+  opacity: 0.6;
+}
+
+/* Modern Pill Badges */
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 9999px;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.badge-amber {
+  background: var(--accent-amber-subtle);
+  color: var(--accent-amber-light);
+  border: 1px solid var(--accent-amber-border);
+}
+
+.badge-blue {
+  background: var(--accent-blue-subtle);
+  color: #93c5fd;
+  border: 1px solid var(--accent-blue-border);
+}
+
+.badge-emerald {
+  background: var(--accent-emerald-subtle);
+  color: #6ee7b7;
+  border: 1px solid var(--accent-emerald-border);
+}
+
+.badge-rose {
+  background: var(--accent-rose-subtle);
+  color: #fda4af;
+  border: 1px solid var(--accent-rose-border);
+}
+
+.badge-purple {
+  background: var(--accent-purple-subtle);
+  color: #d8b4fe;
+  border: 1px solid var(--accent-purple-border);
+}
+
+.badge-neutral {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+/* Modern Minimalist Buttons */
+.btn-modern {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  font-family: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+  outline: none;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+  border: 1px solid transparent;
+}
+
+.btn-modern:active {
+  transform: scale(0.98);
+}
+
+.btn-modern:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Primary Button (Refined Gold/Amber) */
+.btn-primary {
+  background: #f59e0b;
+  color: #090a0f;
+  font-weight: 700;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+.btn-primary:hover:not(:disabled) {
+  background: #fbbf24;
+}
+
+/* Secondary Button (Neutral Glass) */
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  border: 1px solid var(--border-medium);
+}
+.btn-secondary:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: var(--border-highlight);
+}
+
+/* Danger Button (Subtle Rose) */
+.btn-danger {
+  background: rgba(244, 63, 94, 0.12);
+  color: #fda4af;
+  border: 1px solid var(--accent-rose-border);
+}
+.btn-danger:hover:not(:disabled) {
+  background: rgba(244, 63, 94, 0.2);
+}
+
+/* Accent Indigo/Purple Button */
+.btn-accent {
+  background: #6366f1;
+  color: #ffffff;
+}
+.btn-accent:hover:not(:disabled) {
+  background: #4f46e5;
+}
+
+/* Segmented Control (iOS/macOS Style Tabs) */
+.segmented-control {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(15, 17, 23, 0.85);
+  border: 1px solid var(--border-subtle);
+  padding: 3px;
+  border-radius: 12px;
+  gap: 2px;
+}
+
+.segment-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  font-size: 0.775rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.segment-item:hover {
+  color: var(--text-primary);
+}
+
+.segment-item.active {
+  background: rgba(255, 255, 255, 0.09);
+  color: var(--text-primary);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Modern Form Inputs */
+.input-modern {
+  width: 100%;
+  background: rgba(15, 17, 23, 0.8);
+  border: 1px solid var(--border-medium);
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-family: inherit;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  outline: none;
+  transition: all 0.15s ease;
+}
+
+.input-modern:focus {
+  border-color: rgba(245, 158, 11, 0.7);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.12);
+}
+
+.input-modern::placeholder {
+  color: var(--text-muted);
+}
+
+/* Mobile Bottom Navigation (Linear/Discord App Style) */
+.mobile-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(9, 10, 15, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 12px;
+  z-index: 50;
+}
+
+.nav-tab-mobile {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 10px;
+  color: var(--text-tertiary);
+  font-size: 0.72rem;
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+
+.nav-tab-mobile.active {
+  color: var(--accent-amber-light);
+}
+
+.nav-tab-mobile .nav-icon {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.15s ease;
+}
+
+.nav-tab-mobile.active .nav-icon {
+  transform: translateY(-1px);
+}
+
+/* Modern Centered Modal Dialogs */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background: #11131a;
+  border: 1px solid var(--border-medium);
+  border-radius: 20px;
+  max-width: 520px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+  transform: scale(0.96) translateY(6px);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-overlay.open .modal-content {
+  transform: scale(1) translateY(0);
+}
+
+/* Matchup Cards (Esports Minimalist) */
+.match-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: border-color 0.15s ease;
+}
+
+.match-card:hover {
+  border-color: var(--border-medium);
+}
+
+.match-card-winner {
+  border-color: rgba(245, 158, 11, 0.45);
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.04) 0%, var(--bg-card) 100%);
+}
+
+.vs-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Mobile Responsiveness & iOS Safe Area */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  body {
+    padding-bottom: calc(76px + env(safe-area-inset-bottom));
+  }
+  .mobile-bottom-nav {
+    padding-bottom: calc(8px + env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-width: 640px) {
+  .btn-modern {
+    touch-action: manipulation;
+  }
+  .card-modern {
+    border-radius: 14px;
+  }
+  .input-modern {
+    font-size: 16px; /* Prevents auto-zoom on iOS Safari input focus */
+  }
+}
+
+@media (min-width: 768px) {
+  body {
+    padding-bottom: 32px;
+  }
+  .mobile-bottom-nav {
+    display: none;
+  }
+}
